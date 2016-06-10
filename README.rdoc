@@ -1,0 +1,5 @@
+== README
+
+Shopping cart tutorial
+
+original repo: https://github.com/davidalejandroaguilar/RoR-Shopping-Cart-Tutorial
