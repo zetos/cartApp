@@ -1,2 +1,23 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
+<h1>Your Cart</h1>
+<%= link_to 'Clear Cart', cart_clear_path %>
+
+<br>
+
+<% total = 0 #hmmmm %>
+
+<ul>
+	<% @cart.each do | id, quantity | %>
+		<% product = Product.find_by_id(id) #hmmmm %>
+
+	<li>
+		<%= link_to product.title, product %>
+		<p> <%= product.description %> </p>
+		<p> <%= number_to_currency(product.price, :unit => 'R$') %> </p>
+		<p> Quantity: <%= quantity %> </p>
+	</li>
+	<% total += quantity * product.price %>
+
+	<% end %>
+<br>
+<p><b> TOTAL: <%= number_to_currency(total, :unit => 'R$') %> </b></p>
+</ul>
