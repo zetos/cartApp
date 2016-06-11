@@ -6,6 +6,7 @@ class CartController < ApplicationController
 				cart = session[:cart]
 			else
 				session[:cart] = {}
+				cart = session[:cart]
 			end
 			# if the product has already been added to the cart, increment the value else set the value to 1
 			if cart[id] then
@@ -22,10 +23,11 @@ class CartController < ApplicationController
 	end
 
 	def index
-  	#if there is a cart, pass it to the page for display else pass an ampty value
-  	if session[:cart] then
-  		@cart = session[:cart]
-  	else
-  		@cart = {}
+	  	#if there is a cart, pass it to the page for display else pass an ampty value
+	  	if session[:cart] then
+	  		@cart = session[:cart]
+	  	else
+	  		@cart = {}
+		end
 	end
 end
